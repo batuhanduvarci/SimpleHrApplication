@@ -1,10 +1,10 @@
 package com.example.batuhanduvarci.demo.Model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.*;
+import java.util.Date;
 
+@Entity
+@Table(name = "Job")
 public class Job {
 
     @Id
@@ -13,7 +13,7 @@ public class Job {
     private String jobTitle;
     private String jobDescription;
     private Integer peopleAmount;
-    private Date lastDate;
+    private java.util.Date lastDate;
 
     protected Job(){}
 
@@ -52,7 +52,7 @@ public class Job {
         this.peopleAmount = peopleAmount;
     }
 
-    public Date getLastDate() {
+    public java.util.Date getLastDate() {
         return lastDate;
     }
 
