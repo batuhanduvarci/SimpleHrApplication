@@ -10,9 +10,11 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/home").setViewName("home");
         registry.addViewController("/").setViewName("home");
-        registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/jobs").setViewName("list");
-        registry.addViewController("/jobs/list").setViewName("list");
-        registry.addViewController("/jobs/add").setViewName("add");
+        registry.addViewController("/hr/login").setViewName("login");
+        registry.addViewController("/hr/jobs").setViewName("list");
+        registry.addViewController("/hr/jobs/list").setViewName("list");
+        registry.addViewController("/hr/jobs/add").setViewName("add");
+        registry.addViewController("/appliance").setViewName("appliance");
+        registry.addViewController("/apply").setViewName("apply");
     }
 }

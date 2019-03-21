@@ -2,22 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-    <title>Job List</title>
+    <title>Appliance Job List</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-        #btnAdd{
-        width: 100%;
-        }
-
-        #btnDetail{
-        width: 49%;
-        }
-
-        #btnDelete{
-        width: 49%;
-        }
 
     </style>
 </head>
@@ -31,9 +20,6 @@
         <th scope="col">Job Description</th>
         <th scope="col">Needed People(#)</th>
         <th scope="col">Last Application Date</th>
-        <th scope="col">
-                <button id="btnAdd" type="button" class="btn btn-info" onclick="location.href='/hr/jobs/add'">Add New Job</button>
-        </th>
     </tr>
     </thead>
     <tbody>
@@ -45,8 +31,7 @@
         <td>test</td>
         <td>test</td>
         <td>
-            <button id="btnDetail" type="button" class="btn btn-primary btn-sm">Job Details</button>
-            <button id="btnDelete" type="button" class="btn btn-danger btn-sm">Delete Job</button>
+            <button id="btnDetail" type="button" class="btn btn-primary btn-block" onclick="location.href='/apply'">Apply</button>
         </td>
     </tr>
     </tbody>

@@ -2,16 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="utf-8">
-    <title>Add a Job</title>
+    <title>Apply</title>
 
     <style>
         .container{
-             margin: 20% auto;
+             margin: 16% auto;
              border: 1px solid black;
              padding: 10px;
              background-color: #F0F3F4;
              border-radius: 5px;
         }
+
     </style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,22 +23,33 @@
     <form>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputJobTitle" placeholder="Job Title" required>
+                <input type="text" class="form-control" id="inputName" placeholder="Name" required>
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputJobDesc" placeholder="Job Description" required>
+                <input type="email" class="form-control" id="inputMail" placeholder="E-mail" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="number" class="form-control" id="inputPeopleAmount" placeholder="Email" required>
+                <input type="number" class="form-control" id="inputPhone" placeholder="Phone (Example : 555-555-5555)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
             </div>
             <div class="form-group col-md-6">
-                <input type="date" class="form-control" id="inputLastDate" placeholder="Last Application Date" required>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <textarea class="form-control" id="inputThoughts" rows="2" placeholder="Thought on the Job here..." required></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputFile">Upload Resume</label>
+                <input type="file" class="form-control-file" id="inputFile" accept="application/pdf" required>
             </div>
         </div>
 
-        <button type="submit" class="btn btn-info btn-lg">Add</button>
+        <button type="submit" class="btn btn-info btn-lg">Apply</button>
     </form>
 </div>
 
