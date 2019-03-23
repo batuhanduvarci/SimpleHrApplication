@@ -1,4 +1,4 @@
-package com.example.batuhanduvarci.demo.Dao;
+package com.example.batuhanduvarci.demo.Dal;
 
 import com.example.batuhanduvarci.demo.Model.Job;
 import org.springframework.data.repository.CrudRepository;

@@ -1,9 +1,8 @@
 package com.example.batuhanduvarci.demo;
 
-import com.example.batuhanduvarci.demo.Dao.ApplicantRepository;
-import com.example.batuhanduvarci.demo.Dao.JobRepository;
-import com.example.batuhanduvarci.demo.Dao.HrRepository;
-import com.example.batuhanduvarci.demo.Model.Applicant;
+import com.example.batuhanduvarci.demo.Dal.ApplicantRepository;
+import com.example.batuhanduvarci.demo.Dal.JobRepository;
+import com.example.batuhanduvarci.demo.Dal.HrRepository;
 import com.example.batuhanduvarci.demo.Model.HrManager;
 import com.example.batuhanduvarci.demo.Model.Job;
 import org.springframework.boot.CommandLineRunner;
@@ -17,7 +16,7 @@ import java.util.Date;
 public class SimpleHrApplication {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 		SpringApplication.run(SimpleHrApplication.class, args);
 	}
 
@@ -28,9 +27,6 @@ public class SimpleHrApplication {
 		return (args) -> {
 			//save
 			hrRepository.save(new HrManager("John", "Doe", "john.doe@example.com"));
-			applicantRepository.save(new Applicant("Jack", "Bauer", "jack.bauer@example.com"));
-			applicantRepository.save(new Applicant("Tony", "Stark", "tony.stark@example.com"));
-			applicantRepository.save(new Applicant("Steve", "Rogers", "steve.rogers@example.com"));
 
 			jobRepo.save(new Job("Google", "Hiring software developers", 10, currentDate));
 			jobRepo.save(new Job("Airbnb", "Hiring front-end developers", 5, currentDate));
@@ -39,11 +35,6 @@ public class SimpleHrApplication {
 			//fetch all
 			for(HrManager manager : hrRepository.findAll()){
 				System.out.println(manager.toString());
-			}
-			System.out.println("\n");
-
-			for (Applicant applicant : applicantRepository.findAll()){
-				System.out.println(applicant.toString());
 			}
 			System.out.println("\n");
 

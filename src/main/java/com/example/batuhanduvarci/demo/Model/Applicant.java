@@ -1,44 +1,39 @@
 package com.example.batuhanduvarci.demo.Model;
 
 import javax.persistence.*;
+import java.io.File;
 
 @Entity
-@Table(name = "Applicant")
 public class Applicant{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String eMail;
+    private String phone;
+    private String thoughts;
+    private File resume;
 
     protected Applicant(){}
 
-    public Applicant(String firstName, String lastName, String eMail){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Applicant(String name, String eMail, String phone, String thoughts, File resume) {
+        this.name = name;
         this.eMail = eMail;
+        this.phone = phone;
+        this.thoughts = thoughts;
+        this.resume = resume;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String geteMail() {
@@ -49,13 +44,27 @@ public class Applicant{
         this.eMail = eMail;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", eMail='" + eMail + '\'' +
-                '}';
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getThoughts() {
+        return thoughts;
+    }
+
+    public void setThoughts(String thoughts) {
+        this.thoughts = thoughts;
+    }
+
+    public File getResume() {
+        return resume;
+    }
+
+    public void setResume(File resume) {
+        this.resume = resume;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.batuhanduvarci.demo.Controller;
+package com.example.batuhanduvarci.demo.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -10,7 +10,7 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry){
         registry.addViewController("/home").setViewName("home");
         registry.addViewController("/").setViewName("home");
-        registry.addViewController("/hr/login").setViewName("login");
+        registry.addViewController("/login").setViewName("login");
         registry.addViewController("/hr/jobs").setViewName("list");
         registry.addViewController("/hr/jobs/list").setViewName("list");
         registry.addViewController("/hr/jobs/add").setViewName("add");
