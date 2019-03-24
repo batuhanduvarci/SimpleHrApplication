@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
-    <meta charset="utf-8">
-    <title>Add a Job</title>
+    <meta charset="UTF-8">
+    <title>Delete</title>
 
     <style>
         .container{
@@ -17,27 +18,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body class="text-center">
+<body>
 <div class="container">
-    <form th:action="@{/hr/jobs/add}" method="post">
+    <form>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputJobTitle" name="jobTitle" placeholder="Job Title" required>
+                <label for="jobId">Job Id</label>
+                <span id="jobId" th:text="${job.id}"></span>
+                <p th:text="${job.id}"></p>
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputJobDesc" name="jobDesc" placeholder="Job Description" required>
+                <label for="jobTitle">Job Title</label>
+                <span id="jobTitle" th:text="${job.jobTitle}"></span>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="number" class="form-control" id="inputPeopleAmount" name="peopleAmount" placeholder="People Needed" required>
+                <label for="jobDesc">Job Description</label>
+                <span id="jobDesc" th:text="${job.jobDescription}"></span>
             </div>
             <div class="form-group col-md-6">
-                <input type="date" class="form-control" id="inputLastDate" name="lastDate" placeholder="Last Application Date" required>
+                <label for="peopleAmount">Needed people(#)</label>
+                <span id="peopleAmount" th:text="${job.peopleAmount}"></span>
             </div>
         </div>
-
-        <button type="submit" class="btn btn-info btn-lg">Add</button>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="lastDate">Last Application Date</label>
+                <span id="lastDate" th:text="${job.lastDate}"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-danger btn-lg">Back</button>
+            </div>
+        </div>
     </form>
 </div>
 

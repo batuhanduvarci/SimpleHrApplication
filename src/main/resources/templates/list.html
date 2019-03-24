@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
     <title>Job List</title>
 
@@ -10,45 +10,49 @@
         #btnAdd{
         width: 100%;
         }
-
         #btnDetail{
-        width: 49%;
+        width: 100%;
         }
-
         #btnDelete{
-        width: 49%;
+        width: 100%;
         }
-
     </style>
+
 </head>
 <body>
 <table class="table table-hover">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Id</th>
         <th scope="col">Job Title</th>
         <th scope="col">Job Description</th>
         <th scope="col">Needed People(#)</th>
         <th scope="col">Last Application Date</th>
-        <th scope="col">
+        <th scope="col" colspan="2">
                 <button id="btnAdd" type="button" class="btn btn-info" onclick="location.href='/hr/jobs/add'">Add New Job</button>
         </th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>test</td>
-        <td>test</td>
-        <td>
-            <button id="btnDetail" type="button" class="btn btn-primary btn-sm">Job Details</button>
-            <button id="btnDelete" type="button" class="btn btn-danger btn-sm">Delete Job</button>
-        </td>
-    </tr>
+        <tr th:if="${jobs.empty}">
+            <td colspan="6"> No Jobs Available </td>
+        </tr>
+        <tr th:each="job,iter : ${jobs}">
+            <th scope="row"><span th:text="${iter.index}"> Index </span></th>
+                <td><span th:text="${job.jobTitle}"> Job Title </span></td>
+                <td><span th:text="${job.jobDescription}"> Job Description </span></td>
+                <td><span th:text="${job.peopleAmount}"> People Amount </span></td>
+                <td><span th:text="${job.lastDate}"> Last Date </span></td>
+            <td>
+                <button id="btnDetail" type="submit" class="btn btn-primary btn-sm">Job Details</button>
+            </td>
+            <td>
+                <form id="formDelete" th:action="@{/hr/jobs/list}" method="post">
+                    <input type="hidden" name="id" th:value="${job.id}"/>
+                    <button id="btnDelete" type="submit" class="btn btn-danger btn-sm">Delete Job</button>
+                </form>
+            </td>
+        </tr>
     </tbody>
 </table>
 
