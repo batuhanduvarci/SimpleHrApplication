@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface HrRepository extends CrudRepository<HrManager, Long> {
-    List<HrManager> findByFirstName(String firstName);
+    List<HrManager> findByUsername(String username);
 }

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-
+    #btnApply{
+        width: 100%;
+    }
     </style>
 </head>
 <body>
@@ -34,7 +36,10 @@
             <td><span th:text="${job.peopleAmount}"> People Amount </span></td>
             <td><span th:text="${job.lastDate}"> Last Date </span></td>
             <td>
-                <button id="btnDetail" type="button" class="btn btn-primary btn-block" onclick="location.href='/apply'">Apply</button>
+                <form id="formApply" th:action="@{/appliance}" method="post">
+                    <input type="hidden" name="id" th:value="${job.id}"/>
+                    <button id="btnApply" type="submit" class="btn btn-primary btn-sm">Apply</button>
+                </form>
             </td>
         </tr>
     </tbody>

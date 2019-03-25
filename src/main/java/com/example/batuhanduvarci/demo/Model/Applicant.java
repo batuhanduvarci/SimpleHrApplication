@@ -11,17 +11,20 @@ public class Applicant{
     private String name;
     private String eMail;
     private String phone;
+    private String address;
     private String thoughts;
-    private File resume;
+    private Long jobId;
+    //private File resume;
 
     protected Applicant(){}
 
-    public Applicant(String name, String eMail, String phone, String thoughts, File resume) {
+    public Applicant(String name, String eMail, String phone, String address, String thoughts, Long jobId) {
         this.name = name;
         this.eMail = eMail;
         this.phone = phone;
+        this.address = address;
         this.thoughts = thoughts;
-        this.resume = resume;
+        this.jobId = jobId;
     }
 
     public Long getId() {
@@ -52,6 +55,14 @@ public class Applicant{
         this.phone = phone;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getThoughts() {
         return thoughts;
     }
@@ -60,11 +71,19 @@ public class Applicant{
         this.thoughts = thoughts;
     }
 
-    public File getResume() {
-        return resume;
+    public Long getJobId() {
+        return jobId;
     }
 
-    public void setResume(File resume) {
-        this.resume = resume;
+    public void setJobId(Long jobId) {
+        this.jobId = jobId;
     }
+
+    //    public File getResume() {
+//        return resume;
+//    }
+//
+//    public void setResume(File resume) {
+//        this.resume = resume;
+//    }
 }

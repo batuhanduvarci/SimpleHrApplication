@@ -2,21 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
-    <title>Job List</title>
+    <title>Applicant List</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <style>
-        #btnAdd{
-        width: 100%;
-        }
-        #btnDetail{
-        width: 100%;
-        }
-        #btnDelete{
-        width: 100%;
-        }
-    </style>
 
 </head>
 <body>
@@ -42,35 +30,29 @@
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Job Title</th>
-        <th scope="col">Job Description</th>
-        <th scope="col">Needed People(#)</th>
-        <th scope="col">Last Application Date</th>
-        <th scope="col" colspan="2">
-                <button id="btnAdd" type="button" class="btn btn-info" onclick="location.href='/hr/jobs/add'">Add New Job</button>
-        </th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Thoughts on Job</th>
+        <th scope="col">Job Id</th>
     </tr>
     </thead>
     <tbody>
-        <tr th:if="${jobs.empty}">
-            <td colspan="6"> No Jobs Available </td>
-        </tr>
-        <tr th:each="job,iter : ${jobs}">
-            <th scope="row"><span th:text="${iter.index}"> Index </span></th>
-                <td><span th:text="${job.jobTitle}"> Job Title </span></td>
-                <td><span th:text="${job.jobDescription}"> Job Description </span></td>
-                <td><span th:text="${job.peopleAmount}"> People Amount </span></td>
-                <td><span th:text="${job.lastDate}"> Last Date </span></td>
-            <td>
-                <button id="btnDetail" type="submit" class="btn btn-primary btn-sm">Job Details</button>
-            </td>
-            <td>
-                <form id="formDelete" th:action="@{/hr/jobs/list}" method="post">
-                    <input type="hidden" name="id" th:value="${job.id}"/>
-                    <button id="btnDelete" type="submit" class="btn btn-danger btn-sm">Delete Job</button>
-                </form>
-            </td>
-        </tr>
+    <tr th:if="${applicants.empty}">
+        <td colspan="8"> No Applicants Available </td>
+    </tr>
+    <tr th:each="applicant,iter : ${applicants}">
+        <th scope="row"><span th:text="${iter.index}"> Index </span></th>
+        <td><span th:text="${applicant.id}"> Id </span></td>
+        <td><span th:text="${applicant.name}"> Name </span></td>
+        <td><span th:text="${applicant.eMail}"> E-mail </span></td>
+        <td><span th:text="${applicant.phone}"> Phone </span></td>
+        <td><span th:text="${applicant.address}"> Address </span></td>
+        <td><span th:text="${applicant.thoughts}"> Thoughts on Job </span></td>
+        <td><span th:text="${applicant.jobId}"> Job Id </span></td>
+    </tr>
     </tbody>
 </table>
 

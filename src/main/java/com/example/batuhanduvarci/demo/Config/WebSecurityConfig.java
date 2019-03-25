@@ -1,5 +1,6 @@
 package com.example.batuhanduvarci.demo.Config;
 
+import com.example.batuhanduvarci.demo.Model.HrManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    private HrManager hr = new HrManager("hr@example.com", "pass");
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -36,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("hr@example.com").password(passwordEncoder().encode("pass")).roles("USER");
+                .withUser(hr.getUsername()).password(passwordEncoder().encode(hr.getPassword())).roles("USER");
     }
 
     @Bean

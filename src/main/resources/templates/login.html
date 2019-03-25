@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
+       body{
+        background-image: url("https://i2.wp.com/www.headdies.com/wp-content/uploads/2014/11/background-wallpaperwebsites-desktop-website-templates-web-1920x1080-wallpaper.jpg?ssl=1")
+       }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -27,9 +30,6 @@
     <link href="https://getbootstrap.com/docs/4.3/examples/sign-in/signin.css" rel="stylesheet">
 </head>
     <body class="text-center">
-    <div th:if="${param.error}">
-        Invalid username and password.
-    </div>
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
@@ -39,6 +39,9 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" name="username" required autofocus>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+        <div th:if="${param.error}">
+            <a class="badge badge-danger">Invalid Username or Password</a>
+        </div>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

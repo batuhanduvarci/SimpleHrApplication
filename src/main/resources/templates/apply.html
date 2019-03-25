@@ -20,32 +20,26 @@
 </head>
 <body class="text-center">
 <div class="container">
-    <form>
+    <form th:action="@{/apply}" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                <input type="text" class="form-control" id="inputName" name="name" placeholder="Name" required>
             </div>
             <div class="form-group col-md-6">
-                <input type="email" class="form-control" id="inputMail" placeholder="E-mail" required>
+                <input type="email" class="form-control" id="inputMail" name="eMail" placeholder="E-mail" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="number" class="form-control" id="inputPhone" placeholder="Phone (Example : 555-555-5555)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <input type="number" class="form-control" id="inputPhone" name="phone" placeholder="Phone (Example : 555-555-5555)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputAddress" placeholder="Address" required>
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Address" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
-                <textarea class="form-control" id="inputThoughts" rows="2" placeholder="Thought on the Job here..." required></textarea>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="inputFile">Upload Resume</label>
-                <input type="file" class="form-control-file" id="inputFile" accept="application/pdf" required>
+                <textarea class="form-control" id="inputThoughts" rows="2" name="thoughts" placeholder="Thought on the Job here..." required></textarea>
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 package com.example.batuhanduvarci.demo.Controller;
 
+import com.example.batuhanduvarci.demo.Dal.ApplicantRepository;
 import com.example.batuhanduvarci.demo.Dal.JobRepository;
 import com.example.batuhanduvarci.demo.Model.Job;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +20,14 @@ public class HrController {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
+    private ApplicantRepository applicantRepository;
 
     @GetMapping("/hr/jobs/list")
     public String populateList(Model model){
         model.addAttribute("jobs", jobRepository.findAll());
         return "list";
     }
-
-//    @PostMapping("/hr/jobs/list")
-//    public String show(@ModelAttribute Job job){
-//        System.out.println(job);
-//        return "detail";
-//    }
-
-//    @GetMapping("/hr/jobs/detail")
-//    public String showJobDetails(@ModelAttribute Job job, @RequestParam("id") String jobId){
-//        System.out.println(job.getId());
-//        return "detail";
-//    }
 
     @PostMapping("/hr/jobs/list")
     public String deleteJob(@RequestParam("id") String id){
@@ -61,5 +52,11 @@ public class HrController {
         jobRepository.save(new Job(jobTitle, jobDesc, Integer.parseInt(peopleAmount), date));
 
         return "redirect:/hr/jobs/list";
+    }
+
+    @GetMapping("/hr/jobs/applicants")
+    public String showApplicants(Model model){
+        model.addAttribute("applicants", applicantRepository.findAll());
+        return "applicants";
     }
 }
